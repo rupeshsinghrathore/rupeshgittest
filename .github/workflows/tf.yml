@@ -57,4 +57,5 @@ jobs:
            # 9. Terraform Apply
       - name: Terraform Apply
         working-directory: ./prod
-        run: terraform apply -auto-approve tfplan
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve
