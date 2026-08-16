@@ -30,21 +30,32 @@ jobs:
 
       # 4. Terraform Format
       - name: Terraform Format
+        working-directory: ./prod
         run: terraform fmt -check
 
       # 5. Terraform Init
       - name: Terraform Init
+        working-directory: ./prod
         run: terraform init
 
       # 6. Terraform Validate
       - name: Terraform Validate
+        working-directory: ./prod
         run: terraform validate
 
       # 7. Terraform Plan
       - name: Terraform Plan
+        working-directory: ./prod
         run: terraform plan -out=tfplan
 
-      # 8. Terraform Apply using saved tfplan
+      # 8. Upload Terraform Plan
+      - name: Upload Terraform Plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: prod/tfplan
+           # 9. Terraform Apply
       - name: Terraform Apply
+        working-directory: ./prod
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply -auto-approve
