@@ -46,15 +46,5 @@ jobs:
         working-directory: ./prod
         run: terraform plan -out=tfplan
 
-      # 8. Upload Terraform Plan
-      - name: Upload Terraform Plan
-        uses: actions/upload-artifact@v4
-        with:
-          name: tfplan
-          path: prod/tfplan
-           # 9. Terraform Apply
-      - name: Terraform Apply
-        shell: powershell -ExecutionPolicy Bypass {0}
-        working-directory: ./prod
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve
+
+
