@@ -30,7 +30,7 @@ jobs:
 
       # 5. Terraform Init
       - name: Terraform Init
-        shell: powershell
+        shell: powershell -ExecutionPolicy Bypass {0}
         working-directory: ./prod
         run: terraform init
 
