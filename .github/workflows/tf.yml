@@ -36,13 +36,13 @@ jobs:
 
       # 6. Terraform Validate
       - name: Terraform Validate
-        shell: powershell
+        shell: powershell -ExecutionPolicy Bypass {0}
         working-directory: ./prod
         run: terraform validate
 
       # 7. Terraform Plan
       - name: Terraform Plan
-        shell: powershell
+        shell: powershell -ExecutionPolicy Bypass {0}
         working-directory: ./prod
         run: terraform plan -out=tfplan
 
@@ -54,7 +54,7 @@ jobs:
           path: prod/tfplan
            # 9. Terraform Apply
       - name: Terraform Apply
-        shell: powershell
+        shell: powershell -ExecutionPolicy Bypass {0}
         working-directory: ./prod
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve
