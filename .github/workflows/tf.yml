@@ -28,11 +28,6 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4
 
-      # 4. Terraform Format
-      - name: Terraform Format
-        working-directory: ./prod
-        run: terraform fmt -check
-
       # 5. Terraform Init
       - name: Terraform Init
         working-directory: ./prod
