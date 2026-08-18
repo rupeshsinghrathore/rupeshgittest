@@ -20,13 +20,13 @@ jobs:
 
       # 2. Login to Azure
       - name: Azure Login
-        uses: azure/login@v3
+        uses: azure/login@v4
         with:
           creds: ${{ secrets.AZURE_CLIENT_ID }}
 
       # 3. Install Terraform
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@v4
 
       # 4. Terraform Format
       - name: Terraform Format
