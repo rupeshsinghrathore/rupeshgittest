@@ -34,6 +34,8 @@ jobs:
         with:
           terraform_version: latest
           terraform_wrapper: false
+        env:
+         NODE_TLS_REJECT_UNAUTHORIZED: "0"
 
       # 4. Terraform Format
       - name: Terraform Format
