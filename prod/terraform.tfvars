@@ -1,9 +1,5 @@
 rg-rg = {
   rg1 = {
-    name     = "chnadu"
-    location = "centralIndia"
-  }
-  rg2 = {
     name     = "rupesh"
     location = "centralIndia"
   }
