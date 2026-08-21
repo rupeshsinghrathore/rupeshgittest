@@ -30,7 +30,7 @@ jobs:
 
       # 3. Setup Terraform
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v4
+        uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: latest
           terraform_wrapper: false
